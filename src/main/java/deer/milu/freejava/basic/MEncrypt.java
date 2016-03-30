@@ -1,4 +1,4 @@
-package com.miludeer.basic;
+package deer.milu.freejava.basic;
 
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;

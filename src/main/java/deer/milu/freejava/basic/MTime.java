@@ -1,4 +1,4 @@
-package com.miludeer.basic;
+package deer.milu.freejava.basic;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -61,6 +61,6 @@ public class MTime {
     }
 
     public long timeDiffNow() {
-        return this.time.getTime() - new Date().getTime();
+        return this.time.getTime() - new Date().getTime() / 1000;
     }
 }

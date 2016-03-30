@@ -1,4 +1,4 @@
-package com.miludeer.basic;
+package deer.milu.freejava.basic;
 
 /**
  * 字符串处理
