@@ -4,12 +4,24 @@ public class HttpRet {
 	private int mRetCode;
 	private String mRetContent;
 	private String mSessionId;
-	
-	
-	
+	private String mTemp;
 	
 	public String getmSessionId() {
 		return mSessionId;
+	}
+
+
+
+
+	public String getmTemp() {
+		return mTemp;
+	}
+
+
+
+
+	public void setmTemp(String mTemp) {
+		this.mTemp = mTemp;
 	}
 
 
@@ -59,6 +71,6 @@ public class HttpRet {
 	}
 	
 	public String toString() {
-		return "(RetCode:" + mRetCode + ",RetContent:" + mRetContent + ")";
+		return "(RetCode:" + mRetCode + ",RetContent:" + mRetContent + ",sessionId:" + mSessionId + ")";
 	}
 }

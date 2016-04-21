@@ -6,6 +6,12 @@ public class MNameValuePair {
 	public String getName() {
 		return name;
 	}
+	
+	public MNameValuePair(String name, String value) {
+		this.name = name;
+		this.value = value;
+	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}

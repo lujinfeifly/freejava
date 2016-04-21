@@ -73,4 +73,12 @@ public class MString {
 		}
 		return src;
 	}
+	
+	public static String getFileNameWithoutType(String filename) {
+		int index = filename.lastIndexOf(".");
+		if(index<0) {
+			return filename.substring(0, index);
+		}
+		return filename;
+	}
 }
