@@ -47,9 +47,6 @@ public class MUrl {
         }
     };
 
-	
-//	public static String ssss = "BAIDUID=F3E78CE7C4AC856CA2CE0218063E35FC:FG=1; expires=Sat, 01-Apr-17 03:30:41 GMT; max-age=31536000; path=/; domain=.baidu.com; version=1";
-	
 	public static String paserList(List<MNameValuePair> param) {
 		StringBuilder sb = new StringBuilder();
 		int count = param.size();
@@ -57,7 +54,7 @@ public class MUrl {
 			sb.append(param.get(0).getName() + "=" + param.get(0).getValue());
 		}
 		for(int i=1;i < count; i++) {
-			sb.append( "&" + param.get(0).getName() + "=" + param.get(0).getValue());
+			sb.append( "&" + param.get(i).getName() + "=" + param.get(i).getValue());
 		}
 		return sb.toString();
 	}
