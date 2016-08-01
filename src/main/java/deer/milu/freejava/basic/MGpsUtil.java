@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class MGpsUtil {
 
-	private static char[] base32 = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'j', 'k', 'm', 'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+	private static char[] base32 = { '0', '1', '2', '3', '4', '5', '6', '7'};
 	private final static Map<Character, Integer> decodemap = new HashMap<Character, Integer>();
 	static {
 		int sz = base32.length;
@@ -13,8 +13,8 @@ public class MGpsUtil {
 			decodemap.put(base32[i], i);
 		}
 	}
-	private static int precision = 10;
-	private static int[] bits = {16, 8, 4, 2, 1 };
+	private static int precision = 14;
+	private static int[] bits = {4, 2, 1 };
 
 	/**
 	 * 设置精度
@@ -59,7 +59,7 @@ public class MGpsUtil {
 			}
 			is_even = is_even ? false : true;
 
-			if (bit < 4) {
+			if (bit < 2) {
 				bit++;
 			} else {
 				geohash.append(base32[ch]);
@@ -125,11 +125,20 @@ public class MGpsUtil {
 	
 	public static void main(String[] args) {
 		MGpsUtil ghf = new MGpsUtil();
-		String gc1 = ghf.encode(30.63578,104.031681);
-		String gc2 = ghf.encode(30.63578,104.031621);
+		String gc1 = ghf.encode(39.915808,116.212389);
+		String gc5 = ghf.encode(39.913328,116.211374);
+		
+		String gc2 = ghf.encode(39.914044,116.280481);
+		String gc3 = ghf.encode(39.914044,116.404662);
+		String gc4 = ghf.encode(39.914044,116.551122);
+		String gc6 = ghf.encode(36.749136,117.652937);
 
-		System.out.println(gc1);
-		System.out.println(gc2);
+		System.out.println("融科：    "+ gc1);
+		System.out.println("京燕：    " + gc5);
+		System.out.println("五棵松："+gc2);
+		System.out.println("天安门："+gc3);
+		System.out.println("东四环："+gc4);
+		System.out.println("济南哈："+gc6);
 
 		double[] gd1 = ghf.decode(gc1);
 		double[] gd2 = ghf.decode(gc2);
