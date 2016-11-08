@@ -140,7 +140,10 @@ public class MUrl {
             }
             
             ret.setmRetCode(icode);
-            if(icode < 400) {
+            if(icode == 302) {
+            	ret.setmRetContent(conn.getHeaderField("Location"));
+            }
+            else if(icode < 400) {
                 ret.setmRetContent(strRet);
             } 
             
@@ -242,7 +245,10 @@ public class MUrl {
                 result += line;
             }
             ret.setmRetCode(icode);
-            if(icode < 400) {
+            if(icode == 302) {
+            	ret.setmRetContent(conn.getHeaderField("Location"));
+            }
+            else if(icode < 400) {
                 ret.setmRetContent(result);
             } 
         } catch (MalformedURLException me) {
@@ -429,22 +435,22 @@ public class MUrl {
 //    	HttpRet ret = sendGetRequest("http://10.127.3.88/syntime.aspx","","jsession=aaaaaaaaaaaaaaaa");
 //    	System.out.println(ret);
     	
-    	HttpRet ret1 = sendGetRequest("http://dynamic.watch/users/sign_in", "",
-    			"");
-    	System.out.println(ret1.toString());
-    	String bbb ="";
-    	if(ret1.getmRetCode() == 200) {
-          Document doc = Jsoup.parse(ret1.getmRetContent());
-          Elements contents = doc.getElementsByAttributeValue("name", "authenticity_token");
-          Element content = contents.get(0);
-          bbb = content.attr("value");
-          System.out.println(bbb);
-    	}
-    	
-
-    	HttpRet ret2 = sendPostRequest("http://dynamic.watch/users/sign_in", "utf8=%E2%9C%93&authenticity_token="+ java.net.URLEncoder.encode(bbb) +"&user%5Bemail%5D=736214397%40qq.com&user%5Bpassword%5D=LuJinfei123&user%5Bremember_me%5D=0&commit=Log+in",
-    			ret1.getmSessionId());
-    	System.out.println(ret2.toString());
+//    	HttpRet ret1 = sendGetRequest("http://dynamic.watch/users/sign_in", "",
+//    			"");
+//    	System.out.println(ret1.toString());
+//    	String bbb ="";
+//    	if(ret1.getmRetCode() == 200) {
+//          Document doc = Jsoup.parse(ret1.getmRetContent());
+//          Elements contents = doc.getElementsByAttributeValue("name", "authenticity_token");
+//          Element content = contents.get(0);
+//          bbb = content.attr("value");
+//          System.out.println(bbb);
+//    	}
+//    	
+//
+//    	HttpRet ret2 = sendPostRequest("http://dynamic.watch/users/sign_in", "utf8=%E2%9C%93&authenticity_token="+ java.net.URLEncoder.encode(bbb) +"&user%5Bemail%5D=736214397%40qq.com&user%5Bpassword%5D=LuJinfei123&user%5Bremember_me%5D=0&commit=Log+in",
+//    			ret1.getmSessionId());
+//    	System.out.println(ret2.toString());
     	
 //    	HttpRet ret4 = sendGetRequest("http://dynamic.watch/me", "",
 //    			ret2.getmSessionId());
@@ -455,27 +461,32 @@ public class MUrl {
 //    			ret2.getmSessionId());
 //    	System.out.println(ret3.toString());
 //    	
-    	HttpRet ret5 = sendGetRequest("http://dynamic.watch/routes/new", "",
-    			ret2.getmSessionId());
+//    	HttpRet ret5 = sendGetRequest("http://dynamic.watch/routes/new", "",
+//    			ret2.getmSessionId());
 //    	
-    	System.out.println(ret5);
+//    	System.out.println(ret5);
+//    	
+//    	String aaa = "";
+//    	if(ret5.getmRetCode() == 200) {
+//          Document doc = Jsoup.parse(ret5.getmRetContent());
+//          Elements contents = doc.getElementsByAttributeValue("name", "authenticity_token");
+//          Element content = contents.get(0);
+//          aaa = content.attr("value");
+//          System.out.println(aaa);
+//    	}
+//    	
+//    	File f = new File("E:/上口老龙背长陵2016.03.31_107.gpx");
+//    	MNameValuePair a = new MNameValuePair("utf8",  new String(MString.parseHexStr2Byte("E29C93")));
+//    	MNameValuePair b = new MNameValuePair("authenticity_token", aaa);
+//    	List<MNameValuePair> param = new ArrayList<MNameValuePair>();
+//    	param.add(a);
+//    	param.add(b);
+//    	HttpRet ret6 = uploadFile("http://dynamic.watch/routes/upload", param, f, ret5.getmSessionId());
+//    	System.out.println(ret6);
     	
-    	String aaa = "";
-    	if(ret5.getmRetCode() == 200) {
-          Document doc = Jsoup.parse(ret5.getmRetContent());
-          Elements contents = doc.getElementsByAttributeValue("name", "authenticity_token");
-          Element content = contents.get(0);
-          aaa = content.attr("value");
-          System.out.println(aaa);
-    	}
+    	HttpRet ret2 = sendGetRequest("http://show.internal.cxg.changyou.com/gameLogin.action?opt=TNOUNT4V4KSSBZQ2BSZWFPUUXYLPZX6T4ZQKPVI","","");
     	
-    	File f = new File("E:/上口老龙背长陵2016.03.31_107.gpx");
-    	MNameValuePair a = new MNameValuePair("utf8",  new String(MString.parseHexStr2Byte("E29C93")));
-    	MNameValuePair b = new MNameValuePair("authenticity_token", aaa);
-    	List<MNameValuePair> param = new ArrayList<MNameValuePair>();
-    	param.add(a);
-    	param.add(b);
-    	HttpRet ret6 = uploadFile("http://dynamic.watch/routes/upload", param, f, ret5.getmSessionId());
-    	System.out.println(ret6);
+    	System.out.println(ret2.getmRetCode() + "," + ret2.getmRetContent());
+    	
     }
 }
