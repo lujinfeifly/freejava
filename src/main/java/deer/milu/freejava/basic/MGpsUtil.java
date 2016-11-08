@@ -179,9 +179,9 @@ public class MGpsUtil {
 		System.out.println("东四环："+gc4);
 		System.out.println("济南哈："+gc6);
 		
-		double a = distanceFromGps("71644330065730", 116.211374, 39.913328);
+		double a = distanceFromGps("71644330065702", 116.211374, 39.913328);
 
-		double[] gd1 = ghf.decode(gc1);
+		double[] gd1 = ghf.decode("71644330065702");
 		double[] gd2 = ghf.decode(gc2);
 		System.out.println(gd1[0] + ", " + gd1[1]);
 		System.out.println(gd2[0] + ", " + gd2[1]);
