@@ -13,6 +13,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.security.GeneralSecurityException;
+import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
@@ -97,10 +98,12 @@ public class MUrl {
             HttpURLConnection conn = (HttpURLConnection)realUrl.openConnection();
             
             if (conn instanceof HttpsURLConnection) { // 是Https请求
-                SSLContext sslContext = SSLContext.getDefault();
+                SSLContext sslContext = SSLContext.getInstance("TLS");
+                sslContext.init(null, new TrustManager[]{new MyTrustManager()}, new SecureRandom());
                 if (sslContext != null) {
                     SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
                     ((HttpsURLConnection) conn).setSSLSocketFactory(sslSocketFactory);
+//                    HttpsURLConnection.setDefaultHostnameVerifier(new MyHostnameVerifier());
                 }
             }
             
@@ -196,10 +199,12 @@ public class MUrl {
             HttpURLConnection conn = (HttpURLConnection)realUrl.openConnection();
             
             if (conn instanceof HttpsURLConnection) { // 是Https请求
-                SSLContext sslContext = SSLContext.getDefault();
+                SSLContext sslContext = SSLContext.getInstance("TLS");
+                sslContext.init(null, new TrustManager[]{new MyTrustManager()}, new SecureRandom());
                 if (sslContext != null) {
                     SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
                     ((HttpsURLConnection) conn).setSSLSocketFactory(sslSocketFactory);
+//                    HttpsURLConnection.setDefaultHostnameVerifier(new MyHostnameVerifier());
                 }
             }
             
@@ -435,26 +440,26 @@ public class MUrl {
 //    	HttpRet ret = sendGetRequest("http://10.127.3.88/syntime.aspx","","jsession=aaaaaaaaaaaaaaaa");
 //    	System.out.println(ret);
     	
-//    	HttpRet ret1 = sendGetRequest("http://dynamic.watch/users/sign_in", "",
-//    			"");
-//    	System.out.println(ret1.toString());
-//    	String bbb ="";
-//    	if(ret1.getmRetCode() == 200) {
-//          Document doc = Jsoup.parse(ret1.getmRetContent());
-//          Elements contents = doc.getElementsByAttributeValue("name", "authenticity_token");
-//          Element content = contents.get(0);
-//          bbb = content.attr("value");
-//          System.out.println(bbb);
-//    	}
-//    	
-//
-//    	HttpRet ret2 = sendPostRequest("http://dynamic.watch/users/sign_in", "utf8=%E2%9C%93&authenticity_token="+ java.net.URLEncoder.encode(bbb) +"&user%5Bemail%5D=736214397%40qq.com&user%5Bpassword%5D=LuJinfei123&user%5Bremember_me%5D=0&commit=Log+in",
-//    			ret1.getmSessionId());
-//    	System.out.println(ret2.toString());
+    	HttpRet ret1 = sendGetRequest("https://dynamic.watch/users/sign_in", "",
+    			"");
+    	System.out.println(ret1.toString());
+    	String bbb ="";
+    	if(ret1.getmRetCode() == 200) {
+          Document doc = Jsoup.parse(ret1.getmRetContent());
+          Elements contents = doc.getElementsByAttributeValue("name", "authenticity_token");
+          Element content = contents.get(0);
+          bbb = content.attr("value");
+          System.out.println(bbb);
+    	}
     	
-//    	HttpRet ret4 = sendGetRequest("http://dynamic.watch/me", "",
-//    			ret2.getmSessionId());
-//    	System.out.println(ret4.toString());
+
+    	HttpRet ret2 = sendPostRequest("https://dynamic.watch/users/sign_in", "utf8=%E2%9C%93&authenticity_token="+ java.net.URLEncoder.encode(bbb) +"&user%5Bemail%5D=736214397%40qq.com&user%5Bpassword%5D=lujinfei123.&user%5Bremember_me%5D=0&commit=Log+in",
+    			ret1.getmSessionId());
+    	System.out.println(ret2.toString());
+    	
+    	HttpRet ret4 = sendGetRequest("http://dynamic.watch/me", "",
+    			ret2.getmSessionId());
+    	System.out.println(ret4.toString());
     	
     	
 //    	HttpRet ret3 = sendGetRequest("http://dynamic.watch/routes/page/0/100.json", "",
@@ -484,9 +489,30 @@ public class MUrl {
 //    	HttpRet ret6 = uploadFile("http://dynamic.watch/routes/upload", param, f, ret5.getmSessionId());
 //    	System.out.println(ret6);
     	
-    	HttpRet ret2 = sendGetRequest("http://show.internal.cxg.changyou.com/gameLogin.action?opt=TNOUNT4V4KSSBZQ2BSZWFPUUXYLPZX6T4ZQKPVI","","");
-    	
-    	System.out.println(ret2.getmRetCode() + "," + ret2.getmRetContent());
+//    	HttpRet ret2 = sendGetRequest("http://show.internal.cxg.changyou.com/gameLogin.action?opt=TNOUNT4V4KSSBZQ2BSZWFPUUXYLPZX6T4ZQKPVI","","");
+//    	
+//    	System.out.println(ret2.getmRetCode() + "," + ret2.getmRetContent());
     	
     }
+    
+    private static class MyTrustManager implements X509TrustManager{  
+    	  
+        public void checkClientTrusted(X509Certificate[] chain, String authType)  
+                        throws CertificateException {  
+                // TODO Auto-generated method stub  
+                  
+        }  
+
+        public void checkServerTrusted(X509Certificate[] chain, String authType)  
+                        throws CertificateException {  
+                // TODO Auto-generated method stub  
+                  
+        }  
+
+        public X509Certificate[] getAcceptedIssuers() {  
+                // TODO Auto-generated method stub  
+                return null;  
+        }          
+    } 
+     
 }
