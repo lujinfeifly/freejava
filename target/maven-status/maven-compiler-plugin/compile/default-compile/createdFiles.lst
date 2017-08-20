@@ -1,13 +1,14 @@
 com/github/lujinfeifly/freejava/http/MUrl$1.class
 com/github/lujinfeifly/freejava/basic/MEncrypt.class
-com/github/lujinfeifly/freejava/http/MUrl.class
 com/github/lujinfeifly/freejava/http/MUrl$myHostnameVerifier.class
+com/github/lujinfeifly/freejava/basic/MString.class
+com/github/lujinfeifly/freejava/http/HttpRet.class
+com/github/lujinfeifly/freejava/http/MUrl.class
 com/github/lujinfeifly/freejava/basic/URLEncode.class
 com/github/lujinfeifly/freejava/basic/MGpsUtil.class
 com/github/lujinfeifly/freejava/http/MUrl$myX509TrustManager.class
 com/github/lujinfeifly/freejava/http/MUrl$2.class
 com/github/lujinfeifly/freejava/bean/MNameValuePair.class
-com/github/lujinfeifly/freejava/basic/MString.class
-com/github/lujinfeifly/freejava/http/HttpRet.class
 com/github/lujinfeifly/freejava/basic/MTime.class
+com/github/lujinfeifly/freejava/http/MUrl$MyTrustManager.class
 com/github/lujinfeifly/freejava/App.class
