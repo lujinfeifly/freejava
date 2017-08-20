@@ -1,29 +1,56 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.github.lujinfeifly</groupId>
-  <artifactId>freejava</artifactId>
-  <version>0.0.2</version>
-  <packaging>jar</packaging>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.github.lujinfeifly</groupId>
+    <artifactId>freejava</artifactId>
+    <version>0.0.2</version>
+    <packaging>jar</packaging>
+    <name>freejava</name>
+    <url>https://github.com/lujinfeifly/freejava</url>
+    <description>simple java</description>
 
-  <name>freejava</name>
-  <url>https://github.com/lujinfeifly/freejava</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>lujinfei</id>
+            <name>lujinfei</name>
+            <email>lujinfei@outlook.com</email>
+            <url>https://github.com/lujinfeifly/freejava</url>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:git@github.com:lujinfeifly/freejava.git</connection>
+        <developerConnection>scm:git:git@github.com:lujinfeifly/freejava.git</developerConnection>
+        <url>git@github.com:lujinfeifly/freejava.git</url>
+        <tag>lujinfei-code-generator-1.0</tag>
+    </scm>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-
-  <dependencies>
-
-  </dependencies>
+    <dependencies>
+         <dependency>
+              <groupId>org.jsoup</groupId>
+              <artifactId>jsoup</artifactId>
+             <version>1.7.3</version>
+        </dependency>
+    </dependencies>
   
-  <distributionManagement>
-	    <repository>
-	        <id>freejava-repo</id>
-	        <name>freejava-repo</name>
-	        <url>file://C:\Users\lujinfei\Documents\GitHub\test\mvn-repo</url>
-	    </repository>
-  </distributionManagement>
+    <distributionManagement>
+         <snapshotRepository>
+           <id>ossrh</id>
+              <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+         <repository>
+              <id>ossrh</id>
+              <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 	
 	
   

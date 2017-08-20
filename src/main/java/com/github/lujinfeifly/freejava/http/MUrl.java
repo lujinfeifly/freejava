@@ -31,6 +31,10 @@ import javax.net.ssl.X509TrustManager;
 
 import com.github.lujinfeifly.freejava.basic.MString;
 import com.github.lujinfeifly.freejava.bean.MNameValuePair;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 public class MUrl {
 	
