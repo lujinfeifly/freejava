@@ -49,6 +49,9 @@ public class MUrl {
     };
 
 	public static String paserList(List<MNameValuePair> param) {
+		if(param == null) {
+			return "";
+		}
 		StringBuilder sb = new StringBuilder();
 		int count = param.size();
 		if(count >= 1) {
@@ -72,6 +75,11 @@ public class MUrl {
 		return sendGetRequest(url, param, sessionId,
 				"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10532");
 	}
+
+
+	public static HttpRet sendGetRequest(String url, String param, String sessionId, String userAgent) {
+		return sendGetRequest(url, param, sessionId, userAgent, 2000);
+	}
 	
 	/**
      * 向指定URL发送GET方法的请求
@@ -82,7 +90,7 @@ public class MUrl {
      *            请求参数，请求参数应该是 name1=value1&name2=value2 的形式。
      * @return URL 所代表远程资源的响应结果
      */
-    public static HttpRet sendGetRequest(String url, String param, String sessionId, String userAgent) {
+    public static HttpRet sendGetRequest(String url, String param, String sessionId, String userAgent, int timeout) {
         HttpRet ret = new HttpRet();
         String strRet = "";
         BufferedReader in = null;
@@ -103,10 +111,11 @@ public class MUrl {
                 if (sslContext != null) {
                     SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
                     ((HttpsURLConnection) conn).setSSLSocketFactory(sslSocketFactory);
-//                    HttpsURLConnection.setDefaultHostnameVerifier(new MyHostnameVerifier());
                 }
             }
-            
+
+            conn.setConnectTimeout(timeout*2);
+            conn.setReadTimeout(timeout);
             // 设置通用的请求属性
             conn.setRequestProperty("Cache-Control", "max-age=0");
             conn.setRequestProperty("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
