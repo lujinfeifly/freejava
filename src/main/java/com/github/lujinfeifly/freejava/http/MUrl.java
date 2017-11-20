@@ -68,7 +68,7 @@ public class MUrl {
 	}
 	
 	public static HttpRet sendPostRequest(String url, List<MNameValuePair> param, String sessionId, String userAgent) {
-		return sendPostRequest(url, paserList(param), sessionId, userAgent);
+		return sendPostRequest(url, paserList(param), sessionId, userAgent, 2000);
 	}
 	
 	public static HttpRet sendGetRequest(String url, String param, String sessionId) {
@@ -114,7 +114,7 @@ public class MUrl {
                 }
             }
 
-            conn.setConnectTimeout(timeout*2);
+            conn.setConnectTimeout(timeout);
             conn.setReadTimeout(timeout);
             // 设置通用的请求属性
             conn.setRequestProperty("Cache-Control", "max-age=0");
@@ -185,7 +185,8 @@ public class MUrl {
     
     public static HttpRet sendPostRequest(String url, String param, String sessionId) {
     	return sendPostRequest(url, param, sessionId, 
-    			"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10532");
+    			"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10532",
+				2000);
     }
 
     /**
@@ -197,9 +198,8 @@ public class MUrl {
      *            请求参数，请求参数应该是 name1=value1&name2=value2 的形式。
      * @return 所代表远程资源的响应结果
      */
-    public static HttpRet sendPostRequest(String url, String param, String sessionId, String userAgent) {
+    public static HttpRet sendPostRequest(String url, String param, String sessionId, String userAgent, int timeout) {
     	HttpRet ret = new HttpRet();
-//        PrintWriter out = null;
         BufferedReader in = null;
         String result = "";
         try {        	
@@ -213,10 +213,11 @@ public class MUrl {
                 if (sslContext != null) {
                     SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
                     ((HttpsURLConnection) conn).setSSLSocketFactory(sslSocketFactory);
-//                    HttpsURLConnection.setDefaultHostnameVerifier(new MyHostnameVerifier());
                 }
             }
-            
+
+            conn.setConnectTimeout(timeout);
+            conn.setReadTimeout(timeout);
             // 发送POST请求必须设置如下两行
             conn.setDoOutput(true);
             conn.setDoInput(true);
@@ -234,8 +235,6 @@ public class MUrl {
 //            conn.setRequestProperty("Refer", "http://dynamic.watch/users/sign_in");
             if(MString.isNotEmpty(sessionId)) {
             	conn.setRequestProperty("Cookie", sessionId);
-            } else {
-            	//conn.setRequestProperty("Cookie", "_watchweb_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiJWM0NWYyMjcxNjBjMmQwYTQ1MTBiYjU3YjZlYTExNjM4BjsAVEkiGXdhcmRlbi51c2VyLnVzZXIua2V5BjsAVFsHWwZpAlUmSSIiJDJhJDEwJE5FTWduRS9aY0JKYlo5U1l6bXBBbnUGOwBUSSIQX2NzcmZfdG9rZW4GOwBGSSIxeHd5eXAwMWRHdEhlaWpOdlozSWgwc2RaRnpiRjlnZ2h1WjBqMHFmT0FxYz0GOwBG--2eee7dccb321b2fed6291b7ba0d54d8441a64634;");
             }
             
             
