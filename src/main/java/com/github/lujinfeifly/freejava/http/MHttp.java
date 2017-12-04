@@ -38,7 +38,7 @@ public class MHttp {
 
         String urlKey = realUrl.getProtocol() +  "://"+ realUrl.getHost() +  ":" + port;
         String sessionid = cookieMap.get(urlKey);
-//
+
 //        System.out.println(urlKey + "*******" + sessionid);
 
         sessionid = (sessionid == null)?"":sessionid;
@@ -46,10 +46,22 @@ public class MHttp {
     }
 
 
+    /**
+     * Get的pair的list参数请求
+     * @param url 请求的url
+     * @param param 请求的参数
+     * @return
+     */
     public HttpRet sendGetRequest(String url, List<MNameValuePair> param) {
         return sendGetRequest(url, MUrl.paserList(param));
     }
 
+    /**
+     * Get的String参数请求
+     * @param url 请求的url
+     * @param param 请求的参数
+     * @return
+     */
     public HttpRet sendGetRequest(String url, String param) {
         String[] sessionid = fetchSessionId(url);
 
@@ -63,10 +75,22 @@ public class MHttp {
         return  ret;
     }
 
+    /**
+     * poat的pair参数请求
+     * @param url 请求的url
+     * @param param 请求的参数
+     * @return
+     */
     public HttpRet sendPostRequest(String url, List<MNameValuePair> param) {
         return sendPostRequest(url, MUrl.paserList(param));
     }
 
+    /**
+     * post的String 参数请求
+     * @param url
+     * @param param
+     * @return
+     */
     public HttpRet sendPostRequest(String url, String param) {
         String[] sessionid = fetchSessionId(url);
 
@@ -79,6 +103,26 @@ public class MHttp {
 
         return  ret;
 
+    }
+
+    /**
+     * 单文件上传
+     * @param url 上传的url
+     * @param param 上传的参数，不是文件
+     * @param filePath 文件的路径
+     * @return 返回结果
+     */
+    public HttpRet uploadFile(String url, List<MNameValuePair> param, String filePath) {
+        String[] sessionid = fetchSessionId(url);
+
+        // 这里进行请求
+        HttpRet ret = MUrl.sendPostRequest(url, param, filePath, sessionid[1]);
+
+        if(MString.isNotEmpty(ret.getmSessionId())) {
+            cookieMap.put(sessionid[0], ret.getmSessionId());
+        }
+
+        return ret;
     }
 
     public static void main(String[] args) {
