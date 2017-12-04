@@ -19,7 +19,7 @@ public class MGpsUtil {
 
 	/**
 	 * 设置精度
-	 * @param int precision 设置精确位数，此参数决定了该算法的经度
+	 * @param precision 设置精确位数，此参数决定了该算法的经度
 	 *
 	 * */
 	public static void setPrecision(int precision) {

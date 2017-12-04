@@ -21,8 +21,8 @@ public class MEncrypt {
 
     /**
      * 获得字符串的md5字符串，大写
-     * @param s
-     * @return
+     * @param s 源字符串
+     * @return 结果字符串
      */
     public final static String MD5(String s) {
         char hexDigits[]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
@@ -52,8 +52,8 @@ public class MEncrypt {
 
     /**
      * 获得字符串的md5字符串，小写
-     * @param s
-     * @return
+     * @param s 源字符串
+     * @return 结果字符串
      */
     public final static String md5(String s) {
         return MD5(s).toLowerCase();
@@ -64,7 +64,7 @@ public class MEncrypt {
      *
      * @param content 需要加密的内容
      * @param password  加密密码
-     * @return
+     * @return 结果加密byte[]
      */
     public static byte[] AESencrypt(String content, String password) {
         try {
@@ -97,7 +97,7 @@ public class MEncrypt {
     /** aes解密
      * @param content  待解密内容
      * @param password 解密密钥
-     * @return
+     * @return 结果解密byte[]
      */
     public static byte[] AESdecrypt(byte[] content, String password) {
         try {

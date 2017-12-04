@@ -50,13 +50,12 @@ public class URLEncode {
             0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F,  
             0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F,  
             0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F };  
-  
-    /** */  
+
     /** 
      * 编码 
      *  
-     * @param s 
-     * @return 
+     * @param s s输入
+     * @return  输出
      */  
     public static String escape(String s) {  
         StringBuffer sbuf = new StringBuffer();  
@@ -85,13 +84,12 @@ public class URLEncode {
         }  
         return sbuf.toString();  
     }  
-  
-    /** */  
+
     /** 
      * 解码 说明：本方法保证 不论参数s是否经过escape()编码，均能得到正确的“解码”结果 
      *  
-     * @param s 
-     * @return 
+     * @param s  输入
+     * @return  输出
      */  
     public static String unescape(String s) {  
         StringBuffer sbuf = new StringBuffer();  

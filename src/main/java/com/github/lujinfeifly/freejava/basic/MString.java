@@ -9,8 +9,8 @@ import java.util.Random;
 public class MString {
 
     /**将二进制转换成16进制样式字符串
-     * @param buf
-     * @return
+     * @param buf 输入的数组
+     * @return 返回的字符串
      */
     public static String parseByte2HexStr(byte buf[]) {
         StringBuffer sb = new StringBuffer();
@@ -25,8 +25,8 @@ public class MString {
     }
 
     /**将16进制转换为二进制byte[] 数组
-     * @param hexStr
-     * @return
+     * @param hexStr 输入的16进只字符串
+     * @return 返回的数组
      */
     public static byte[] parseHexStr2Byte(String hexStr) {
         if (hexStr.length() < 1)
@@ -43,8 +43,8 @@ public class MString {
     /**
 	 * 是否不为空
 	 *
-	 * @param s
-	 * @return
+	 * @param s 字符串
+	 * @return 返回是否不为空
 	 */
 	public static boolean isNotEmpty(String s) {
 		return s != null && !"".equals(s.trim());
@@ -53,8 +53,8 @@ public class MString {
 	/**
 	 * 是否为空
 	 *
-	 * @param s
-	 * @return
+	 * @param s 字符串
+	 * @return 返回是否为空
 	 */
 	public static boolean isEmpty(String s) {
 		return s == null || "".equals(s.trim());
@@ -63,9 +63,9 @@ public class MString {
 	/**
 	 * 通过{n},格式化.
 	 *
-	 * @param src
-	 * @param objects
-	 * @return
+	 * @param src 字符串
+	 * @param objects 参数
+	 * @return 返回的字符串
 	 */
 	public static String format(String src, Object... objects) {
 		int k = 0;

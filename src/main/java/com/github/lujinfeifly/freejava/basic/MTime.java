@@ -71,7 +71,7 @@ public class MTime {
 	 *    3.今年的返回：月日加时候小时分钟
 	 *    4.去年的返回：年份加时候小时分钟
 	 * @param time 日期值
-	 * @return
+	 * @return 返回的时间表示字符串
 	 */
 	public static String getHumenTime(long time) {
 		SimpleDateFormat HourFormat = new SimpleDateFormat("HH:mm");
@@ -113,7 +113,7 @@ public class MTime {
 	 * 获取当天的时候（凌晨，上午，中午，下午，晚上）
 	 * @param hour 小时 24时制
 	 * @param mini 分钟
-	 * @return
+	 * @return 返回的时候（凌晨，上午，中午，下午，晚上）
 	 */
 	public static String getTimeDup(int hour, int mini) {
 		if (hour >= 0 && hour < 7) {

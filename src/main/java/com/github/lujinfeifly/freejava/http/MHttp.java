@@ -50,7 +50,7 @@ public class MHttp {
      * Get的pair的list参数请求
      * @param url 请求的url
      * @param param 请求的参数
-     * @return
+     * @return 结果
      */
     public HttpRet sendGetRequest(String url, List<MNameValuePair> param) {
         return sendGetRequest(url, MUrl.paserList(param));
@@ -60,7 +60,7 @@ public class MHttp {
      * Get的String参数请求
      * @param url 请求的url
      * @param param 请求的参数
-     * @return
+     * @return 结果
      */
     public HttpRet sendGetRequest(String url, String param) {
         String[] sessionid = fetchSessionId(url);
@@ -79,7 +79,7 @@ public class MHttp {
      * poat的pair参数请求
      * @param url 请求的url
      * @param param 请求的参数
-     * @return
+     * @return 结果
      */
     public HttpRet sendPostRequest(String url, List<MNameValuePair> param) {
         return sendPostRequest(url, MUrl.paserList(param));
@@ -87,9 +87,9 @@ public class MHttp {
 
     /**
      * post的String 参数请求
-     * @param url
-     * @param param
-     * @return
+     * @param url url
+     * @param param 参数
+     * @return 结果
      */
     public HttpRet sendPostRequest(String url, String param) {
         String[] sessionid = fetchSessionId(url);
