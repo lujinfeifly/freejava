@@ -52,7 +52,7 @@ public class URLEncode {
             0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F };  
 
     /** 
-     * 编码 
+     * url编码
      *  
      * @param s s输入
      * @return  输出
@@ -86,7 +86,7 @@ public class URLEncode {
     }  
 
     /** 
-     * 解码 说明：本方法保证 不论参数s是否经过escape()编码，均能得到正确的“解码”结果 
+     * url解码 说明：本方法保证 不论参数s是否经过escape()编码，均能得到正确的“解码”结果
      *  
      * @param s  输入
      * @return  输出
