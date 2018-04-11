@@ -127,9 +127,6 @@ public class MHttp {
 
     public static void main(String[] args) {
         getInstance().timeout = 5000;
-//        HttpRet ret = getInstance().sendGetRequest("http://www.baidu.com", null);
-//        System.out.println(ret.getmSessionId());
-
 
         HttpRet ret1 = getInstance().sendGetRequest("https://dynamic.watch/users/sign_in", "");
         System.out.println(ret1.toString());
