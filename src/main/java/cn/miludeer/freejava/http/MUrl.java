@@ -1,4 +1,4 @@
-package com.github.lujinfeifly.freejava.http;
+package cn.miludeer.freejava.http;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -24,8 +24,8 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 
-import com.github.lujinfeifly.freejava.basic.MString;
-import com.github.lujinfeifly.freejava.bean.MNameValuePair;
+import cn.miludeer.freejava.basic.MString;
+import cn.miludeer.freejava.bean.MNameValuePair;
 
 public class MUrl {
 	

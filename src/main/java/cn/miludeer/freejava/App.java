@@ -1,4 +1,4 @@
-package com.github.lujinfeifly.freejava;
+package cn.miludeer.freejava;
 
 /**
  * Hello world!

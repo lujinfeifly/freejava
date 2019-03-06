@@ -1,4 +1,4 @@
-package com.github.lujinfeifly.freejava.bean;
+package cn.miludeer.freejava.bean;
 
 public class MNameValuePair {
 	private String name;

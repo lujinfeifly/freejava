@@ -1,7 +1,7 @@
-package com.github.lujinfeifly.freejava.http;
+package cn.miludeer.freejava.http;
 
-import com.github.lujinfeifly.freejava.basic.MString;
-import com.github.lujinfeifly.freejava.bean.MNameValuePair;
+import cn.miludeer.freejava.basic.MString;
+import cn.miludeer.freejava.bean.MNameValuePair;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

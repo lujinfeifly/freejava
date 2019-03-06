@@ -1,4 +1,4 @@
-package com.github.lujinfeifly.freejava.basic;
+package cn.miludeer.freejava.basic;
 
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;

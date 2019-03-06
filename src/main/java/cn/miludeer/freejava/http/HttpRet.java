@@ -1,4 +1,4 @@
-package com.github.lujinfeifly.freejava.http;
+package cn.miludeer.freejava.http;
 
 public class HttpRet {
 	private int mRetCode;
