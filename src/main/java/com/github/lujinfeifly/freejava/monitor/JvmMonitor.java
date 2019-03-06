@@ -1,5 +1,6 @@
 package com.github.lujinfeifly.freejava.monitor;
 
+import com.github.lujinfeifly.freejava.monitor.jvm.JvmStatus;
 import org.springframework.beans.factory.InitializingBean;
 
 /**
@@ -19,7 +20,7 @@ public class JvmMonitor implements InitializingBean{
         public void run() {
             while(isStop) {
                 try {
-                    System.out.println("....");
+                    JvmStatus.print();
                     Thread.sleep(heartbeatTime);
                 } catch (InterruptedException e) {
                 }
