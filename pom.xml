@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.github.lujinfeifly</groupId>
+    <groupId>cn.miludeer</groupId>
     <artifactId>freejava</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.3</version>
     <packaging>jar</packaging>
     <name>freejava</name>
-    <url>https://github.com/lujinfeifly/freejava</url>
+    <url>http://miludeer.cn</url>
     <description>simple java</description>
 
     <properties>
@@ -21,10 +21,9 @@
     </licenses>
     <developers>
         <developer>
-            <id>lujinfei</id>
+            <id>lujinfeifly</id>
             <name>lujinfei</name>
             <email>lujinfei@outlook.com</email>
-            <url>https://github.com/lujinfeifly/freejava</url>
         </developer>
     </developers>
     <scm>
