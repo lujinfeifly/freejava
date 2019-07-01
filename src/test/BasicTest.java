@@ -1,4 +1,4 @@
-import cn.miludeer.freejava.basic.MapObjectConvert;
+import cn.miludeer.freejava.convert.MapObjectConvert;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -35,6 +35,19 @@ public class BasicTest {
         int e8 = "String".hashCode();
         int e9 = "short".hashCode();
 
+
+
+        int e11 = "java.lang.Integer".hashCode();
+        int e21 = "java.lang.Boolean".hashCode();
+        int e31 = "java.lang.Long".hashCode();
+        int e41 = "java.lang.Double".hashCode();
+        int e51 = "java.lang.Float".hashCode();
+        int e61 = "java.lang.Byte".hashCode();
+        int e71 = "java.lang.Character".hashCode();
+        int e81 = "java.lang.String".hashCode();
+        int e91 = "java.lang.Short".hashCode();
+
+
         Map<String, String> a = new HashMap<String, String>();
         a.put("a", "1");
         a.put("b", "aaaaaa");
@@ -50,6 +63,11 @@ public class BasicTest {
         Abc c = MapObjectConvert.MapToObject(a, Abc.class);
 
         System.out.println(c);
+
+        Abc d = MapObjectConvert.MapToObject(a, Abc.class);
+
+        System.out.println(d);
+
     }
 
 }
