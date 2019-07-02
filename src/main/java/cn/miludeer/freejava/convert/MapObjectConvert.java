@@ -38,6 +38,7 @@ public class MapObjectConvert {
                             try {
                                 funValue.f.set(object, StringToSimple.Convert(entry.getValue(), funValue.type));
                             } catch (IllegalAccessException e) {
+                            } catch (RuntimeException e) {
                             }
                             break;
                         case 2:
@@ -45,6 +46,7 @@ public class MapObjectConvert {
                                 funValue.m.invoke(object, StringToSimple.Convert(entry.getValue(), funValue.type));
                             } catch (IllegalAccessException e) {
                             } catch (InvocationTargetException e) {
+                            } catch (RuntimeException e) {
                             }
                             break;
                     }

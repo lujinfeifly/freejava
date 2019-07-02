@@ -42,7 +42,7 @@ public class MapObjectConvertCache {
 
         for (Field f:fields) {
             String name = f.getName();
-            String type = f.getType().getName();
+            Class type = f.getType();
             int kind = 0;
             Method method = null;
             if((f.getModifiers()&1) == 1) {
@@ -73,9 +73,9 @@ public class MapObjectConvertCache {
         int kind;
         Method m;
         Field f;
-        String type;
+        Class type;
 
-        public FunValue(String key, int kind, Method m, Field f, String type) {
+        public FunValue(String key, int kind, Method m, Field f, Class type) {
             this.kind = kind;
             this.key = key;
             this.m = m;

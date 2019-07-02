@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 
 /**
  * program: freejava
@@ -25,6 +26,9 @@ public class Abc {
     private Byte g;
     private Character h;
     private Boolean i;
+    private BigInteger j;
+
+    public subAbc k;
 
     public void setA(Integer a) {
         this.a = a;
@@ -34,7 +38,7 @@ public class Abc {
         this.c = c;
     }
 
-    public void setDf(Long d) {
+    public void setD(Long d) {
         this.d = d;
     }
 
@@ -42,8 +46,17 @@ public class Abc {
         this.e = e;
     }
 
+    public BigInteger getJ() {
+        return j;
+    }
+
+    public void setJ(BigInteger j) {
+        this.j = j;
+    }
+
     public void setF(Float f) {
         this.f = f;
+
     }
 
     public void setG(Byte g) {

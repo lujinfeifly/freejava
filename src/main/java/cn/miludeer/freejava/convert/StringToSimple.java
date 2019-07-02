@@ -1,5 +1,9 @@
 package cn.miludeer.freejava.convert;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.math.BigInteger;
+
 /**
  * program: freejava
  * <p>
@@ -11,7 +15,8 @@ package cn.miludeer.freejava.convert;
  **/
 public class StringToSimple {
 
-    public static Object Convert(String source, String type) {
+    public static <T> Object Convert(String source, Class<T> typeClass) {
+        String type = typeClass.getName();
         switch (type.hashCode()) {
             case 1195259493:    // string
                 if(type.equals("java.lang.String")) {
@@ -116,7 +121,20 @@ public class StringToSimple {
                     throw new RuntimeException();
                 }
             default:
-                throw new RuntimeException();
+                try {
+                    Constructor c1 = typeClass.getDeclaredConstructor(new Class[]{String.class});
+                    c1.setAccessible(true);
+                    T t = (T)c1.newInstance(source);
+                    return t;
+                } catch (NoSuchMethodException e) {
+                    throw new RuntimeException();
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException();
+                } catch (InstantiationException e) {
+                    throw new RuntimeException();
+                } catch (InvocationTargetException e) {
+                    throw new RuntimeException();
+                }
         }
     }
 }

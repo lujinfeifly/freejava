@@ -46,7 +46,7 @@ public class BasicTest {
         int e71 = "java.lang.Character".hashCode();
         int e81 = "java.lang.String".hashCode();
         int e91 = "java.lang.Short".hashCode();
-
+        int e100 = "java.math.BigInteger".hashCode();
 
         Map<String, String> a = new HashMap<String, String>();
         a.put("a", "1");
@@ -58,7 +58,8 @@ public class BasicTest {
         a.put("g","4");
         a.put("h","3");
         a.put("i","true");
-
+        a.put("j","123456788222");
+        a.put("k", "dddd");
 
         Abc c = MapObjectConvert.MapToObject(a, Abc.class);
 
