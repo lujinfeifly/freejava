@@ -122,7 +122,7 @@ public class StringToSimple {
             default:
                 try {
                     Constructor c1 = typeClass.getDeclaredConstructor(new Class[]{String.class});
-                    c1.setAccessible(true);
+                    //c1.setAccessible(true);  // 这行注释为了保证访问合规
                     T t = (T)c1.newInstance(source);
                     return t;
                 } catch (NoSuchMethodException e) {
