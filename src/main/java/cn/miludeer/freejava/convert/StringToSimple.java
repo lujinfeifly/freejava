@@ -5,11 +5,11 @@ import java.lang.reflect.InvocationTargetException;
 
 /**
  * program: freejava
- * <p>
- * description: ${description}
- * <p>
+ * description: 基础转换函数
+ * 1. 借鉴了java7之后版本的支持string的switch想法，做的判断方案实现的Convert 函数
+ *    因为修改少，这里的hashcode就可以写固定。不为易读考虑了。
+ *
  * author: lujinfei
- * <p>
  * create: 2019-07-01 22:31
  **/
 public class StringToSimple {
