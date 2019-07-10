@@ -55,7 +55,7 @@ public class BasicTest {
         a.put("d", "100000");
         a.put("e","2.3");
         a.put("f","35454.677");
-        a.put("g","4");
+        a.put("g","128");
         a.put("h","3");
         a.put("i","true");
         a.put("j","123456788222");

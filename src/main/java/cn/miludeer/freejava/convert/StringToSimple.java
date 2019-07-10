@@ -85,24 +85,34 @@ public class StringToSimple {
                 }
             case 3039496:
                 if(type.equals("byte")) {
-                    return (byte)source.charAt(0);
+                    long tmp = Integer.parseInt(source);
+                    if(tmp >= -128 && tmp <= 127) {
+                        return (byte) (0xff & tmp);
+                    } else {
+                        throw new RuntimeException();
+                    }
                 } else {
                     throw new RuntimeException();
                 }
             case 398507100:
                 if(type.equals("java.lang.Byte")) {
-                    return (byte)source.charAt(0);
+                    long tmp = Integer.parseInt(source);
+                    if(tmp >= -128 && tmp <= 127) {
+                        return (byte) (0xff & tmp);
+                    } else {
+                        throw new RuntimeException();
+                    }
                 } else {
                     throw new RuntimeException();
                 }
             case 3052374:
-                if(type.equals("char")) {
+                if(type.equals("char") && source.length() == 1) {
                     return source.charAt(0);
                 } else {
                     throw new RuntimeException();
                 }
             case 155276373:
-                if(type.equals("java.lang.Character")) {
+                if(type.equals("java.lang.Character") && source.length() == 1) {
                     return source.charAt(0);
                 } else {
                     throw new RuntimeException();
